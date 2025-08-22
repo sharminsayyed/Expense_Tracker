@@ -32,7 +32,7 @@ namespace ExpenseTrackerr.Migrations
 
                     b.Property<string>("Icon")
                         .IsRequired()
-                        .HasColumnType("nvarchar(50)");
+                        .HasColumnType("nvarchar(5)");
 
                     b.Property<string>("Title")
                         .IsRequired()
@@ -40,7 +40,7 @@ namespace ExpenseTrackerr.Migrations
 
                     b.Property<string>("Type")
                         .IsRequired()
-                        .HasColumnType("nvarchar(50)");
+                        .HasColumnType("nvarchar(20)");
 
                     b.HasKey("CategoryId");
 
@@ -65,7 +65,7 @@ namespace ExpenseTrackerr.Migrations
                         .HasColumnType("datetime2");
 
                     b.Property<string>("Note")
-                        .HasColumnType("nvarchar(50)");
+                        .HasColumnType("nvarchar(80)");
 
                     b.HasKey("TransactionId");
 

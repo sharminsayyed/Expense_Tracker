@@ -13,10 +13,10 @@ namespace ExpenseTracker.Models
         [Column (TypeName ="nvarchar(50)")]
         public string Title { get; set; }
 
-        [Column(TypeName = "nvarchar(50)")]
+        [Column(TypeName = "nvarchar(5)")]
         public string Icon { get; set; } = ""; // Icon for the category, can be an emoji or a font icon
 
-        [Column(TypeName = "nvarchar(50)")]
+        [Column(TypeName = "nvarchar(20)")]
         public string Type { get; set; } = "Expense";// Income or Expense type 
 
 
