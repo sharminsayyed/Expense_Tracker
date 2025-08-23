@@ -17,6 +17,13 @@ html {
   min-height: 100%;
 }
 
+/*adding from here */
 body {
   margin-bottom: 60px;
+  background-color:#12161d;
+  color:#fff;
+}
+
+.e-bigger {
+    font-size: x-large;
 }

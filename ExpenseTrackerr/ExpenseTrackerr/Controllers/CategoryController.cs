@@ -11,18 +11,19 @@ namespace ExpenseTrackerr.Controllers
 {
     public class CategoryController : Controller
     {
-        private readonly ApplicationDbContext _context;
+        private readonly ApplicationDbContext _dbcontext;
         // passed by the dependency injection
 
-        public CategoryController(ApplicationDbContext context)
+        public CategoryController(ApplicationDbContext dbcontext)
         {
-            _context = context;
+            _dbcontext = dbcontext;
         }
 
+        //We use async/await so our app doesn’t get stuck waiting and can handle more work at the same time.
         // GET: Category
         public async Task<IActionResult> Index()
         {
-            return View(await _context.Categories.ToListAsync());
+            return View(await _dbcontext.Categories.ToListAsync());
         }
 
         // GET: Category/Details/5
@@ -33,7 +34,7 @@ namespace ExpenseTrackerr.Controllers
                 return NotFound();
             }
 
-            var category = await _context.Categories
+            var category = await _dbcontext.Categories
                 .FirstOrDefaultAsync(m => m.CategoryId == id);
             if (category == null)
             {
@@ -46,20 +47,19 @@ namespace ExpenseTrackerr.Controllers
         // GET: Category/Create
         public IActionResult Create()
         {
-            return View();
+            return View(new Category());
         }
 
         // POST: Category/Create
-        // To protect from overposting attacks, enable the specific properties you want to bind to.
-        // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
+        
         [HttpPost]
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> Create([Bind("CategoryId,Title,Icon,Type")] Category category)
         {
             if (ModelState.IsValid)
             {
-                _context.Add(category);
-                await _context.SaveChangesAsync();
+                _dbcontext.Add(category);
+                await _dbcontext.SaveChangesAsync();
                 return RedirectToAction(nameof(Index));
             }
             return View(category);
@@ -73,7 +73,7 @@ namespace ExpenseTrackerr.Controllers
                 return NotFound();
             }
 
-            var category = await _context.Categories.FindAsync(id);
+            var category = await _dbcontext.Categories.FindAsync(id);
             if (category == null)
             {
                 return NotFound();
@@ -97,8 +97,8 @@ namespace ExpenseTrackerr.Controllers
             {
                 try
                 {
-                    _context.Update(category);
-                    await _context.SaveChangesAsync();
+                    _dbcontext.Update(category);
+                    await _dbcontext.SaveChangesAsync();
                 }
                 catch (DbUpdateConcurrencyException)
                 {
@@ -124,7 +124,7 @@ namespace ExpenseTrackerr.Controllers
                 return NotFound();
             }
 
-            var category = await _context.Categories
+            var category = await _dbcontext.Categories
                 .FirstOrDefaultAsync(m => m.CategoryId == id);
             if (category == null)
             {
@@ -139,19 +139,19 @@ namespace ExpenseTrackerr.Controllers
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> DeleteConfirmed(int id)
         {
-            var category = await _context.Categories.FindAsync(id);
+            var category = await _dbcontext.Categories.FindAsync(id);
             if (category != null)
             {
-                _context.Categories.Remove(category);
+                _dbcontext.Categories.Remove(category);
             }
 
-            await _context.SaveChangesAsync();
+            await _dbcontext.SaveChangesAsync();
             return RedirectToAction(nameof(Index));
         }
 
         private bool CategoryExists(int id)
         {
-            return _context.Categories.Any(e => e.CategoryId == id);
+            return _dbcontext.Categories.Any(e => e.CategoryId == id);
         }
     }
 }

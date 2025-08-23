@@ -261,3 +261,6 @@ F:\Sharmin\Expense_Tracker\ExpenseTrackerr\ExpenseTrackerr\bin\Debug\net8.0\runt
 F:\Sharmin\Expense_Tracker\ExpenseTrackerr\ExpenseTrackerr\bin\Debug\net8.0\runtimes\win\lib\net7.0\System.Drawing.Common.dll
 F:\Sharmin\Expense_Tracker\ExpenseTrackerr\ExpenseTrackerr\bin\Debug\net8.0\runtimes\win\lib\net7.0\System.Security.Cryptography.ProtectedData.dll
 F:\Sharmin\Expense_Tracker\ExpenseTrackerr\ExpenseTrackerr\bin\Debug\net8.0\runtimes\win\lib\net7.0\System.Windows.Extensions.dll
+F:\Sharmin\Expense_Tracker\ExpenseTrackerr\ExpenseTrackerr\bin\Debug\net8.0\Syncfusion.EJ2.dll
+F:\Sharmin\Expense_Tracker\ExpenseTrackerr\ExpenseTrackerr\bin\Debug\net8.0\Syncfusion.Licensing.dll
+F:\Sharmin\Expense_Tracker\ExpenseTrackerr\ExpenseTrackerr\obj\Debug\net8.0\ExpenseTrackerr.MvcApplicationPartsAssemblyInfo.cs
